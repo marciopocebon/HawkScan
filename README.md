@@ -75,8 +75,6 @@ This script use "waybacktool" to check in waybackmachine (https://github.com/Rhy
     If problem with pip3:    
        sudo python3 -m pip install -r requirements.txt
 
-    If you have problem to install the library "dryscrape" you can follow this link:
-       https://www.it-swarm.dev/fr/python/pip-install-dryscrape-echoue-avec-error-errno-2-ce-fichier-ou-repertoire-srcwebkit-server/827034588/
  > 
   
  >

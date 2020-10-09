@@ -783,14 +783,9 @@ def tryUrl(i, q, threads, manager=False, directory=False, forced=False, u_agent=
                         status_link = req.status_code 
                     except:
                         status_link = req.status_code()
-                try:
-                    redirect_link = req.url 
-                    redirect_stat = req.status_code
-                    len_req = len(req.content)
-                except:
-                    redirect_link = req.url()
-                    redirect_stat = req.status_code()
-                    len_req = len(req.body())
+                redirect_link = req.url 
+                redirect_stat = req.status_code
+                len_req = len(req.content)
 
                 #print(status_link) #DEBUG status response
                 if status_link == 200:
@@ -830,7 +825,7 @@ def tryUrl(i, q, threads, manager=False, directory=False, forced=False, u_agent=
                     if 'sitemap.xml' in res:
                         parsing.sitemap(req, directory)
                     parsing.search_s3(res, req, directory)
-                elif status_link == 403:
+                elif status_link in [403, 401]:
                     #pass
                     if type(req_p) == int:
                         filterM.check_exclude_code(HOUR, res, req)
@@ -849,14 +844,14 @@ def tryUrl(i, q, threads, manager=False, directory=False, forced=False, u_agent=
                             #report.create_report_url(status_link, res, directory)
                         if not forced:
                             forbi = True
-                            print("{} {} {} \033[31m Forbidden \033[0m".format(HOUR, FORBI, res))
+                            print("{} {} {} ({} bytes) \033[31m Forbidden \033[0m".format(HOUR, FORBI, res, len_req))
                             create_backup(res, directory, forbi)
                             outpt(directory, res, stats=403)
                             #report.create_report_url(status_link, res, directory)
                         elif not forced and recur:
                             pass
                         else:
-                            print("{} {} {} \033[31m Forbidden \033[0m".format(HOUR, FORBI, res))
+                            print("{} {} {} ({} bytes) \033[31m Forbidden \033[0m".format(HOUR, FORBI, res, len_req))
                             #pass
                 elif status_link == 404:
                     pass
@@ -921,10 +916,6 @@ def tryUrl(i, q, threads, manager=False, directory=False, forced=False, u_agent=
                 elif status_link == 422 or status_link == 423 or status_link == 424 or status_link == 425:
                     print("{} {} {} \033[33mError WebDAV\033[0m".format(HOUR, LESS, res))
                     #report.create_report_url(status_link, res, directory)
-                elif status_link == 401:
-                    """print("{} {} {} \033[33m401 Unauthorized\033[0m".format(HOUR,LESS, res))
-                    outpt(directory, res, stats=401)"""
-                    pass
                 elif status_link == 405:
                     print("{} {} {}".format(HOUR, PLUS, res))
                     outpt(directory, res, stats=405)

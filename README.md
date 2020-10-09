@@ -11,9 +11,9 @@ This script use "Sublist3r" to scan subdomains (https://github.com/aboul3la/Subl
 This script use "waybacktool" to check in waybackmachine (https://github.com/Rhynorater/waybacktool)
 
 # News
-**!** Version 1.5.4     
-**!** Delete "dryscrape" librarie for the moment, many error with it, I'll remake it later
-**!** Add option "--js" for scan and analyse js         
+**!** Version 1.5.4        
+**!** Delete "dryscrape" librarie for the moment, many error with it, I'll remake it later            
+**!** Add option "--js" for scan and analyse js          
 
 # Features
  - [x] URL fuzzing and dir/file detection

@@ -81,7 +81,7 @@ This script use "waybacktool" to check in waybackmachine (https://github.com/Rhy
   
  >
      
-    usage: hawkscan.py [-h] [-u URL] [-w WORDLIST] [-s SUBDOMAINS] [-t THREAD] [-a USER_AGENT] [--redirect] [-r] [-p PREFIX] [-o OUTPUT] [--cookie COOKIE_] [--exclude EXCLUDE] [--timesleep TS] [--auto]
+    usage: hawkscan.py [-h] [-u URL] [-w WORDLIST] [-s SUBDOMAINS] [-t THREAD] [-a USER_AGENT] [--redirect] [-r] [-p PREFIX] [-o OUTPUT] [--cookie COOKIE_] [--exclude EXCLUDE] [--timesleep TS] [--auto] [--js]
  
  > 
  
@@ -102,7 +102,7 @@ This script use "waybacktool" to check in waybackmachine (https://github.com/Rhy
      --timesleep TS     To define a timesleep/rate-limit if app is unstable during scan                                 
      --auto             Automatic threads depending response to website. Max: 30      
      --update           For automatic update
-
+     --js               For try to found keys or token in the javascript page       
  >
 
 # Exemples
